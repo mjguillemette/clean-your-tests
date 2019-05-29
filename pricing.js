@@ -1,4 +1,4 @@
-function formatPrice(price) {
+export function formatPrice(price) {
   return parseInt(price * 100) / 100
 }
 
@@ -74,6 +74,17 @@ function calculateLTDPrice(product, employee, selectedOptions) {
   return price
 }
 
+export function calculateCommuterPrice(product, employee, selectedOption) {
+  let price = 0
+  if (selectedOption.transport === 'parking'){
+    price += 250
+    return price
+  }
+  else { 
+    price += 84.75 
+    return price }
+}
+
 export function calculateProductPrice(product, employee, selectedOptions) {
   let price
   let employerContribution
@@ -88,6 +99,10 @@ export function calculateProductPrice(product, employee, selectedOptions) {
       return formatPrice(price - employerContribution)
     case 'ltd':
       price = calculateLTDPrice(product, employee, selectedOptions)
+      employerContribution = getEmployerContribution(product.employerContribution, price)
+      return formatPrice(price - employerContribution)
+    case 'commuter':
+      price = calculateCommuterPrice(product, employee, selectedOptions)
       employerContribution = getEmployerContribution(product.employerContribution, price)
       return formatPrice(price - employerContribution)
     default:

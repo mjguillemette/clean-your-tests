@@ -42,7 +42,7 @@ export const commuter = {
   type: 'commuter',
   employerContribution: { mode: 'dollars', contribution: 75 },
   costs: [
-    { type: 'train', price: 84.75 },
-    { type: 'parking', price: 250 }
+    { transport: 'train', price: 84.75 },
+    { transport: 'parking', price: 250 }
   ]
 }
