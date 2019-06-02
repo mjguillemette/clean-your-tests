@@ -23,12 +23,12 @@ describe('pricing', () => {
   describe('calculateCommuterPrice', () => {
     it('returns the price for a commuter product for someone who is parking', () => {
       const selectedOptions = { transport: 'parking' }
-      const price = calculateCommuterPrice(commuter, employee, selectedOptions)
+      const price = calculateCommuterPrice(selectedOptions)
       expect(price).to.equal(250) 
     })
     it('returns the price for a commuter product for someone who is riding the train', () => {
       const selectedOptions = { transport: 'train' }
-      const price = calculateCommuterPrice(commuter, employee, selectedOptions)
+      const price = calculateCommuterPrice(selectedOptions)
       expect(price).to.equal(84.75) 
     })
   })
@@ -86,6 +86,13 @@ describe('pricing', () => {
       const price = calculateProductPrice(longTermDisability, employee, selectedOptions)
 
       expect(price).to.equal(22.04)
+    })
+
+    it('returns the price for a commuter product for an employee', () => {
+      const selectedOptions =  { transport: 'parking' } 
+      const price = calculateProductPrice(commuter, employee, selectedOptions)
+
+      expect(price).to.equal(175)
     })
 
     it('throws an error on unknown product type', () => {

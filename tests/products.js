@@ -40,7 +40,7 @@ export const commuter = {
   name: 'Commuter Assistance',
   vendor: 'Carmichael Transit and Parking',
   type: 'commuter',
-  employerContribution: { mode: 'dollars', contribution: 75 },
+  employerContribution: { mode: 'dollar', contribution: 75 },
   costs: [
     { transport: 'train', price: 84.75 },
     { transport: 'parking', price: 250 }

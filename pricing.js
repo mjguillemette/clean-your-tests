@@ -74,7 +74,7 @@ function calculateLTDPrice(product, employee, selectedOptions) {
   return price
 }
 
-export function calculateCommuterPrice(product, employee, selectedOption) {
+export function calculateCommuterPrice(selectedOption) {
   let price = 0
   if (selectedOption.transport === 'parking'){
     price += 250
@@ -102,7 +102,7 @@ export function calculateProductPrice(product, employee, selectedOptions) {
       employerContribution = getEmployerContribution(product.employerContribution, price)
       return formatPrice(price - employerContribution)
     case 'commuter':
-      price = calculateCommuterPrice(product, employee, selectedOptions)
+      price = calculateCommuterPrice(selectedOptions)
       employerContribution = getEmployerContribution(product.employerContribution, price)
       return formatPrice(price - employerContribution)
     default:
